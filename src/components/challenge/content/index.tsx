@@ -10,8 +10,10 @@ function Content() {
   return (
     <div className={classes.content}>
       <Description />
-      <File />
-      <Code />
+      <div className={classes.codeWrapper}>
+        <File />
+        <Code />
+      </div>
     </div>
   );
 }

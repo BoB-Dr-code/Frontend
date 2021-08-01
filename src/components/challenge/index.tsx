@@ -4,6 +4,8 @@ import { useHistory, useParams } from "react-router-dom";
 import Header from "./header";
 import Content from "./content";
 import { challengeStyles } from "./style";
+import Toolbar from "./toolbar";
+import Footer from "./footer";
 
 interface IParam {
   id: string;
@@ -20,7 +22,9 @@ function Challenge() {
   return (
     <div className={classes.challenge}>
       <Header />
+      <Toolbar />
       <Content />
+      <Footer />
     </div>
   );
 }

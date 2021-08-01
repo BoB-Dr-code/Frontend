@@ -13,9 +13,11 @@ function Description() {
   return (
     <div className={classes.description}>
       <Progress step={step} />
-      <Explanation />
-      <Content />
-      <ButtonLayout />
+      <div className={classes.contentLayout}>
+        <Explanation />
+        <Content />
+        <ButtonLayout />
+      </div>
     </div>
   );
 }
