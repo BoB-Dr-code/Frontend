@@ -1,31 +1,39 @@
 import { useEffect, useState } from "react";
+import { IWarningCheck } from "..";
 import { codeStyles } from "../../style";
 import Line from "./line";
 
-interface ICode {
-  text: string;
-  warning: boolean;
-}
-
-function Code() {
+function Code({
+  codeList,
+  warningGroup,
+  selectedCheck,
+  setSelectGroup,
+}: {
+  codeList: {
+    text: string;
+    group: number;
+  }[];
+  warningGroup: number[];
+  selectedCheck: IWarningCheck;
+  setSelectGroup: (group: number) => void;
+}) {
   const classes = codeStyles();
-  const [lineList, setLineList] = useState<ICode[]>([]);
-
-  useEffect(() => {
-    setLineList([
-      { text: "export const codeStyles = makeStyles(() =>", warning: true },
-      { text: "  createStyles({", warning: true },
-      { text: "    code: {},", warning: false },
-      { text: "  })", warning: false },
-      { text: ");", warning: true },
-    ]);
-  }, []);
 
   return (
     <div className={classes.code}>
-      {lineList.map((v, i) => (
-        <Line text={v.text} warning={v.warning} line={i + 1} />
-      ))}
+      {codeList.map((v, i) => {
+        return (
+          <Line
+            text={v.text}
+            warning={warningGroup.includes(v.group)}
+            line={i + 1}
+            key={`line-${i}`}
+            check={selectedCheck[v.group] ?? false}
+            group={v.group}
+            setSelectGroup={setSelectGroup}
+          />
+        );
+      })}
     </div>
   );
 }

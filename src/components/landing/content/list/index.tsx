@@ -1,98 +1,11 @@
 import { useEffect, useState } from "react";
+import { IChallenge } from "../..";
 import { listStyles } from "../../style";
 import Card from "./card";
 import Search from "./search";
 
-export interface IChallenge {
-  title: string;
-  category: string;
-  participant: number;
-  finished: number;
-  gpa: number;
-  good: number;
-  bad: number;
-}
-
-function List() {
+function List({ quizList }: { quizList: IChallenge[] }) {
   const classes = listStyles();
-  const [challengeList, setChallengeList] = useState<IChallenge[]>([]);
-
-  useEffect(() => {
-    setChallengeList([
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-      {
-        title: "test title",
-        category: "test category",
-        finished: 1000,
-        participant: 2000,
-        gpa: 3.86,
-        good: 123,
-        bad: 42,
-      },
-    ]);
-  }, []);
 
   return (
     <div className={classes.list}>
@@ -101,8 +14,8 @@ function List() {
         <Search />
       </div>
       <div className={classes.cardLayout}>
-        {challengeList.map((v, i) => (
-          <Card {...v} key={`card-${i}`} />
+        {quizList.map((v, i) => (
+          <Card {...v} key={`card-${i}`} index={i + 1} />
         ))}
       </div>
     </div>

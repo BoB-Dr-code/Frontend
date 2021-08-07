@@ -1,4 +1,4 @@
-import { IChallenge } from ".";
+import { IChallenge } from "../..";
 import { cardStyles } from "../../style";
 // import {Rating} from '@material-ui/lab"
 
@@ -10,12 +10,20 @@ import { useHistory } from "react-router-dom";
 function Card({
   title,
   category,
-  finished,
-  participant,
-  gpa,
+  attempt,
+  correct,
   good,
   bad,
-}: IChallenge) {
+  index,
+}: {
+  title: string;
+  category: string;
+  attempt: number;
+  correct: number;
+  good: number;
+  bad: number;
+  index: number;
+}) {
   const classes = cardStyles();
   const history = useHistory();
 
@@ -23,14 +31,14 @@ function Card({
     <div
       className={classes.card}
       onClick={() => {
-        history.push(`/challenge/1`);
+        history.push(`/challenge/${index}`);
       }}
     >
       <div className={classes.content}>
         <div className={classes.title}>{title}</div>
         <div className={classes.description}>
           <div className={classes.category}>{category}</div>
-          <div className={classes.gpa}>{gpa}</div>
+          <div className={classes.gpa}>{"gpa"}</div>
         </div>
       </div>
       <div className={classes.divider} />
@@ -38,12 +46,12 @@ function Card({
         <div className={classes.average}>
           <div className={classes.participant}>
             <span className={classes.participantText}>참여자</span>
-            <span className={classes.participantCount}>{participant}</span>
+            <span className={classes.participantCount}>{attempt}</span>
           </div>
           <div className={classes.finished}>
             <span className={classes.finishedText}>정답율</span>
             <span className={classes.finishedCount}>
-              {(finished / participant) * 100}%
+              {(correct / attempt) * 100}%
             </span>
           </div>
         </div>

@@ -3,10 +3,16 @@ import { Redeem, CheckBoxOutlined } from "@material-ui/icons";
 import Modal from "../../modal";
 import { useState } from "react";
 
-function ButtonLayout() {
+function ButtonLayout({
+  hintList,
+}: {
+  hintList: {
+    title: string;
+    description: string;
+  }[];
+}) {
   const classes = buttonLayoutStyles();
   const [modal, setModal] = useState<boolean>(false);
-  const [hintList, setHintList] = useState<string[]>([]);
 
   return (
     <div className={classes.layout}>
@@ -30,12 +36,7 @@ function ButtonLayout() {
           다음
         </button>
       </div>
-      <Modal
-        modal={modal}
-        setModal={setModal}
-        hintList={hintList}
-        setHintList={setHintList}
-      />
+      <Modal modal={modal} setModal={setModal} hintList={hintList} />
     </div>
   );
 }

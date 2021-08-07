@@ -1,6 +1,7 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "dr-code-frontend",
+  "version": "1.0.0",
+  "description": "시큐어 코딩 교육 플랫폼 Dr.code Backend Repository",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",

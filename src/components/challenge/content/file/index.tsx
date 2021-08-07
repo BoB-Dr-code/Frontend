@@ -33,8 +33,8 @@ function File() {
 
   return (
     <div className={classes.file}>
-      {fileList.map((v) => (
-        <Row {...v} />
+      {fileList.map((v, i) => (
+        <Row {...v} key={`file-${i}`} />
       ))}
     </div>
   );

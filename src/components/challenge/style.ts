@@ -240,7 +240,7 @@ export const fileStyles = makeStyles(() =>
     file: {
       padding: "10px",
       width: "300px",
-      height: "100%",
+      height: "calc(100% - 20px)",
       backgroundColor: "#32383E",
     },
   })

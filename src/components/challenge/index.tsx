@@ -11,11 +11,6 @@ interface IParam {
   id: string;
 }
 
-interface IChallenge {
-  title: string;
-  description: string;
-}
-
 function Challenge() {
   const classes = challengeStyles();
   const { id } = useParams<IParam>();
@@ -23,7 +18,7 @@ function Challenge() {
     <div className={classes.challenge}>
       <Header />
       <Toolbar />
-      <Content />
+      <Content id={id} />
       <Footer />
     </div>
   );

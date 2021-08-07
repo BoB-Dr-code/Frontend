@@ -5,10 +5,16 @@ function Line({
   text,
   warning,
   line,
+  check,
+  group,
+  setSelectGroup,
 }: {
   text: string;
   warning: boolean;
   line: number;
+  check: boolean;
+  group: number;
+  setSelectGroup: (group: number) => void;
 }) {
   const classes = lineStyles();
   return (
@@ -16,11 +22,7 @@ function Line({
       <div
         className={classes.warning}
         onClick={() => {
-          if (warning) {
-            document
-              .getElementById(`line-${line}`)
-              ?.classList.toggle(classes.selected);
-          }
+          setSelectGroup(group);
         }}
       >
         {warning && <WarningRounded />}
@@ -28,8 +30,9 @@ function Line({
       <div className={classes.line}>{line}</div>
       <div className={classes.code}>
         <div
-          id={`line-${line}`}
-          className={warning ? classes.highlighting : ""}
+          className={`${warning ? classes.highlighting : ""} ${
+            check && classes.selected
+          }`}
         >
           {text}
         </div>
