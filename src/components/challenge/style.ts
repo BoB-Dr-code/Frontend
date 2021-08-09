@@ -97,6 +97,9 @@ export const progressStyles = makeStyles(() =>
         },
       },
     },
+    laneActive: {
+      backgroundColor: "#F38B00",
+    },
   })
 );
 
@@ -143,6 +146,7 @@ export const explanationContentStyles = makeStyles(() =>
     selected: {
       color: "#ffb700",
       fontWeight: "bold",
+      marginRight: "4px",
     },
     description: {
       color: "#c8c8c8",
@@ -202,7 +206,7 @@ export const lineStyles = makeStyles(() =>
       display: "flex",
     },
     warning: {
-      width: "16px",
+      width: "22px",
       height: "16px",
       "&>svg": {
         width: "16px",

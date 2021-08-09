@@ -1,6 +1,6 @@
 import { IChallenge } from "../..";
 import { cardStyles } from "../../style";
-// import {Rating} from '@material-ui/lab"
+import Rating from "@material-ui/lab/Rating";
 
 import {
   SentimentDissatisfiedRounded,
@@ -38,7 +38,9 @@ function Card({
         <div className={classes.title}>{title}</div>
         <div className={classes.description}>
           <div className={classes.category}>{category}</div>
-          <div className={classes.gpa}>{"gpa"}</div>
+          <div className={classes.gpa}>
+            <Rating value={Math.floor(Math.random() * 4) + 1} readOnly />
+          </div>
         </div>
       </div>
       <div className={classes.divider} />

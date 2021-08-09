@@ -20,6 +20,7 @@ function Line({
   return (
     <div className={classes.lineWrapper}>
       <div
+        style={{ pointerEvents: warning ? "auto" : "none" }}
         className={classes.warning}
         onClick={() => {
           setSelectGroup(group);

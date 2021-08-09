@@ -86,6 +86,10 @@ export const cardStyles = makeStyles(() =>
     },
     gpa: {
       color: "#ffffff",
+      "& svg": {
+        height: "18px",
+        width: "18px",
+      },
     },
     divider: {
       width: "100%",

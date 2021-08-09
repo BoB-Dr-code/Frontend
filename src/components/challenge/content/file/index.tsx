@@ -11,30 +11,34 @@ export type IExtensionType =
   | "javascript"
   | "python";
 
-interface IFile {
-  extension: IExtensionType;
-  warning: boolean;
-  text: string;
-}
-
-function File() {
+function File({
+  fileList,
+  setFileIndex,
+}: {
+  fileList: {
+    fileName: string;
+    content: {
+      text: string;
+      group: number;
+    }[];
+    warningGroup: number[];
+  }[];
+  setFileIndex: React.Dispatch<React.SetStateAction<number>>;
+}) {
   const classes = fileStyles();
-  const [fileList, setFileList] = useState<IFile[]>([]);
 
-  useEffect(() => {
-    setFileList([
-      { text: "login.aspx.cs", extension: "default", warning: true },
-      { text: "login.cs", extension: "default", warning: true },
-      { text: "login.test.cs", extension: "default", warning: true },
-      { text: "web.config", extension: "default", warning: false },
-      { text: "login.aspx", extension: "default", warning: false },
-    ]);
-  }, []);
+  function checkWarning() {}
 
   return (
     <div className={classes.file}>
       {fileList.map((v, i) => (
-        <Row {...v} key={`file-${i}`} />
+        <Row
+          text={v.fileName}
+          warning={v.warningGroup.length > 0}
+          key={`file-${i}`}
+          index={i}
+          setFileIndex={setFileIndex}
+        />
       ))}
     </div>
   );

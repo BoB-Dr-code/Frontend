@@ -3,21 +3,30 @@ import { WarningRounded, InsertDriveFile } from "@material-ui/icons";
 import { IExtensionType } from ".";
 
 function Row({
-  extension,
   warning,
   text,
+  index,
+  setFileIndex,
 }: {
-  extension: IExtensionType;
   warning: boolean;
   text: string;
+  index: number;
+  setFileIndex: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const classes = rowStyles();
   return (
-    <div className={classes.row}>
-      {extension !== "default" ? (
-        <div className={`${classes.extension} ${classes[extension]}`}></div>
+    <div
+      className={classes.row}
+      onClick={() => {
+        setFileIndex(index);
+      }}
+    >
+      {false ? (
+        <div
+          className={`${classes.extension} ${/*classes[extension]*/ ``}`}
+        ></div>
       ) : (
-        <div className={`${classes.extension} ${classes[extension]}`}>
+        <div className={`${classes.extension} ${classes.default}`}>
           <InsertDriveFile />
         </div>
       )}
