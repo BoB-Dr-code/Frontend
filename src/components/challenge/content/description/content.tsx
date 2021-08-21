@@ -85,8 +85,7 @@ function Content({
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(2, calc(50% - 5px))",
-                gap: "15px 10px",
+                gap: "18px 10px",
               }}
             >
               {selectedVuln?.map((v, i) => {

@@ -5,6 +5,19 @@ export const challengeSetStyles = makeStyles(() =>
     challengeSet: {
       width: "100%",
       height: "100%",
+      "& *::-webkit-scrollbar": {
+        height: "10px",
+        width: "8px",
+        backgroundColor: "#1e1e2f",
+      },
+      "& *::-webkit-scrollbar-thumb": {
+        borderRadius: "10px",
+        backgroundColor: "#555",
+      },
+      "& *::-webkit-scrollbar-track": {
+        borderRadius: "10px",
+        backgroundColor: "#1e1e2f",
+      },
     },
   })
 );
@@ -13,7 +26,9 @@ export const contentStyles = makeStyles(() =>
   createStyles({
     wrapper: {
       width: "100%",
-      height: "calc(100% - 62px)",
+      minHeight: "calc(100% - 92px)",
+      height: "fit-content",
+      paddingBottom: "30px",
       backgroundColor: "#272A2F",
     },
     container: {

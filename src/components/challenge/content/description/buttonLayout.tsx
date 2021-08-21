@@ -61,14 +61,16 @@ function ButtonLayout({
   return (
     <div className={classes.layout}>
       <div className={classes.button}>
-        <button
-          className={classes.skip}
-          onClick={() => {
-            setStep(step - 1);
-          }}
-        >
-          이전으로
-        </button>
+        {step !== 1 && (
+          <button
+            className={classes.skip}
+            onClick={() => {
+              setStep(step - 1);
+            }}
+          >
+            이전으로
+          </button>
+        )}
       </div>
       <div className={classes.button}>
         <button

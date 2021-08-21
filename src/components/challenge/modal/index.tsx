@@ -78,9 +78,7 @@ function Modal({
           <div className={classes.modalContent}>
             {hintList[hintIndex].description}
           </div>
-          <div className={classes.notice}>
-            죄송합니다. 이 텍스트는 현재 영어로만 제공됩니다.
-          </div>
+          <div className={classes.notice}></div>
         </div>
         <div className={classes.modalFooter}>
           <div>

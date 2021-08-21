@@ -6,6 +6,19 @@ export const challengeStyles = makeStyles(() =>
       backgroundColor: "#262A2F",
       width: "100%",
       height: "100%",
+      "& *::-webkit-scrollbar": {
+        height: "10px",
+        width: "8px",
+        backgroundColor: "#1e1e2f",
+      },
+      "& *::-webkit-scrollbar-thumb": {
+        borderRadius: "10px",
+        backgroundColor: "#555",
+      },
+      "& *::-webkit-scrollbar-track": {
+        borderRadius: "10px",
+        backgroundColor: "#1e1e2f",
+      },
     },
   })
 );
@@ -133,6 +146,9 @@ export const explanationContentStyles = makeStyles(() =>
       borderLeft: "5px solid #dd9935",
       margin: "15px 0px",
       padding: "15px",
+      overflow: "auto",
+      maxHeight: "635px",
+      height: "fit-content",
     },
     title: {
       color: "#ffb700",
@@ -140,8 +156,9 @@ export const explanationContentStyles = makeStyles(() =>
     },
     content: {
       color: "#c8c8c8",
-      lineHeight: "16px",
+      lineHeight: 1.4,
       height: "24px",
+      marginBottom: "10px",
     },
     selected: {
       color: "#ffb700",
