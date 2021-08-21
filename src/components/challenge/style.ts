@@ -157,7 +157,7 @@ export const explanationContentStyles = makeStyles(() =>
     content: {
       color: "#c8c8c8",
       lineHeight: 1.4,
-      height: "24px",
+      height: "fit-content",
       marginBottom: "10px",
     },
     selected: {
